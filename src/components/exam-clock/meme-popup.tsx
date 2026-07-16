@@ -150,7 +150,18 @@ export function MemePopup() {
             className="w-[min(82vw,380px)] rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-4 text-center shadow-lg"
           >
             <p className="mb-3 text-base font-semibold text-[var(--app-text)]">{active.caption}</p>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[var(--app-border)]">
+            <div
+              className="relative overflow-hidden rounded-xl bg-[var(--app-border)]"
+              style={
+                active.width && active.height
+                  ? {
+                      aspectRatio: `${active.width} / ${active.height}`,
+                      maxWidth: `${active.width}px`,
+                      margin: "0 auto",
+                    }
+                  : { aspectRatio: "4 / 3" }
+              }
+            >
               <img
                 src={active.imageUrl}
                 alt=""

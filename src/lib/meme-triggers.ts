@@ -2,6 +2,8 @@ export type MemeTrigger = {
   time: string; // "HH:MM" or "HH:MM:SS" format
   imageUrl: string;
   caption: string;
+  width?: number; // optional: pixel width for the meme
+  height?: number; // optional: pixel height for the meme
 };
 
 const embeddedMemeImage =
@@ -34,13 +36,13 @@ export const previewMemeTrigger: MemeTrigger = {
 
 export const memeTriggers: MemeTrigger[] = [
   {
-    time: "20:53:00",
+    time: "21:18:00",
     imageUrl: embeddedMemeImage,
     caption: "Tiny stretch break, then back to it.",
   },
   {
-    time: "20:54:00",
-    imageUrl: embeddedMemeImage,
-    caption: "Final lap. Keep the room steady.",
+    time: "21:45:00",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR48cVhHUA5WwIQUaMtuexowNQkkQoZMVenxQS8WS3chA&s",
+    caption: "Saara Ghee khatam",
   },
 ];
