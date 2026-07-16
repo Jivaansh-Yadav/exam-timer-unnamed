@@ -4,17 +4,15 @@ import { useEffect, useMemo, useState } from "react";
 import { getProgressPercent, interpolateHsl } from "@/lib/clock-utils";
 
 export function useExamGradient(startTime: string, endTime: string) {
-  const [now, setNow] = useState<Date | null>(null);
+  const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
-    setNow(new Date());
     const interval = window.setInterval(() => setNow(new Date()), 3000);
     return () => window.clearInterval(interval);
   }, []);
 
   return useMemo(() => {
-    const currentTime = now || new Date();
-    const progress = getProgressPercent(currentTime, startTime, endTime);
+    const progress = getProgressPercent(now, startTime, endTime);
     const color = interpolateHsl(progress);
     return {
       progress,

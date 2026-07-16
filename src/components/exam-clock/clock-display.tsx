@@ -3,6 +3,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { EditableText } from "@/components/exam-clock/editable-text";
+import { TimeLeftCard } from "@/components/exam-clock/time-left-card";
 import { useLiveTime } from "@/hooks/use-live-time";
 import { getResolvedLocale } from "@/i18n";
 import { padTime, timeToMinutes } from "@/lib/clock-utils";
@@ -25,11 +27,15 @@ export function ClockDisplay({
   compact = false,
   endTime,
   testStarted = false,
+  testName,
+  onTestNameChange,
 }: {
   progress: number;
   compact?: boolean;
   endTime: string;
   testStarted?: boolean;
+  testName: string;
+  onTestNameChange: (value: string) => void;
 }) {
   const { t } = useTranslation();
   const now = useLiveTime();
@@ -63,7 +69,17 @@ export function ClockDisplay({
         compact ? "py-3 sm:py-4" : "py-2 sm:py-4",
       )}
     >
-      <div className="flex w-full max-w-[1180px] items-baseline justify-center font-heading leading-none">
+      <EditableText
+        value={testName}
+        onValueChange={onTestNameChange}
+        placeholder={t("clock.testNamePlaceholder")}
+        aria-label={t("clock.testNameAria")}
+        title={t("clock.testNameAria")}
+        onFocus={(event) => event.currentTarget.select()}
+        className="mb-3 w-full max-w-3xl rounded px-2 py-1 text-center font-heading text-base font-semibold uppercase tracking-[0.32em] text-[var(--app-text-secondary)] placeholder:text-[var(--app-text-secondary)] placeholder:opacity-90 hover:bg-[var(--app-surface)]/35 focus:bg-[var(--app-surface)]/45 focus:ring-2 focus:ring-[var(--app-primary)]/25 sm:mb-4 sm:text-lg sm:tracking-[0.4em] md:text-xl"
+      />
+
+      <div className="flex w-full max-w-[1180px] items-end justify-center font-heading leading-none">
         <span className="debossed-digits text-[clamp(3.2rem,17vw,12rem)] font-[300] leading-none tracking-[0.03em]">
           {parts.hours}
         </span>
@@ -76,11 +92,13 @@ export function ClockDisplay({
         <span className="mx-[0.02em] text-[clamp(2.4rem,11vw,8.5rem)] font-[300] leading-none text-[var(--app-text-muted)] opacity-45">
           :
         </span>
-        <span className="text-[clamp(2.3rem,10vw,8.5rem)] font-[300] leading-none tracking-[0.02em] text-[var(--app-text-secondary)] opacity-85">
-          {parts.seconds}
-        </span>
-        <span className="ml-2 self-center text-[clamp(0.8rem,2.3vw,1.875rem)] font-semibold uppercase tracking-[0.16em] text-[var(--app-accent)] sm:ml-4">
-          {parts.ampm}
+        <span className="flex w-[clamp(5.6rem,18vw,15.5rem)] flex-col items-start justify-end">
+          <span className="mb-1 pl-[0.08em] text-[clamp(0.8rem,2.3vw,1.875rem)] font-semibold uppercase leading-none tracking-[0.16em] text-[var(--app-accent)]">
+            {parts.ampm}
+          </span>
+          <span className="text-[clamp(2.3rem,10vw,8.5rem)] font-[300] leading-none tracking-[0.02em] text-[var(--app-text-secondary)] opacity-85">
+            {parts.seconds}
+          </span>
         </span>
       </div>
 
@@ -97,6 +115,18 @@ export function ClockDisplay({
           style={{ width: `${progress}%`, transition: "width 1000ms cubic-bezier(0.4,0,0.2,1)" }}
         />
       </div>
+
+      {testStarted && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 8 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 8 }}
+          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+          className="mt-4 w-full max-w-xs sm:mt-5 md:mt-6"
+        >
+          <TimeLeftCard endTime={endTime} testStarted={testStarted} />
+        </motion.div>
+      )}
 
       <div className="mt-3 flex min-h-[3.25rem] items-center justify-center sm:min-h-[4rem]">
         <AnimatePresence mode="popLayout">

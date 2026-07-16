@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 export function useLiveTime() {
-  const [now, setNow] = useState<Date | null>(null);
+  const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
     const tick = () => setNow(new Date());
@@ -12,5 +12,5 @@ export function useLiveTime() {
     return () => window.clearInterval(interval);
   }, []);
 
-  return useMemo(() => now || new Date(), [now]);
+  return useMemo(() => now, [now]);
 }

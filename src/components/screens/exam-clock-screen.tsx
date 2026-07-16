@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ClockDisplay } from "@/components/exam-clock/clock-display";
 import { EditableText } from "@/components/exam-clock/editable-text";
@@ -17,11 +17,16 @@ import { reportClockAction } from "@/lib/report-clock-action";
 export function ExamClockScreen() {
   const { t } = useTranslation();
   const [testStarted, setTestStarted] = useState(false);
-  const [testName, setTestName] = useLocalStorageState("exam-clock.testName", "");
+  const [testName, setTestName] = useLocalStorageState("exam-clock.testName.v3", "");
   const [greeting, setGreeting] = useLocalStorageState("exam-clock.greeting", "");
   const [startTime, setStartTime] = useLocalStorageState("exam-clock.startTime", "09:00");
   const [endTime, setEndTime] = useLocalStorageState("exam-clock.endTime", "17:00");
   const gradient = useExamGradient(startTime, endTime);
+
+  useEffect(() => {
+    window.localStorage.removeItem("exam-clock.testName");
+    window.localStorage.removeItem("exam-clock.testName.v2");
+  }, []);
 
   useDebouncedEffect(() => {
     if (testName.trim()) {
@@ -87,24 +92,23 @@ export function ExamClockScreen() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-        className="relative z-10 flex w-full shrink-0 items-center justify-between gap-3"
+        className="relative z-10 flex w-full shrink-0 items-center justify-end gap-3"
         style={{ paddingTop: "max(14px, env(safe-area-inset-top, 0px))" }}
       >
-        <EditableText
-          value={testName}
-          onValueChange={setTestName}
-          placeholder={t("clock.testNamePlaceholder")}
-          aria-label={t("clock.testNameAria")}
-          title={t("clock.testNameAria")}
-          className="w-full max-w-xl rounded px-2 py-1 font-heading text-base font-semibold tracking-wide text-[var(--app-text-secondary)] sm:text-lg md:text-xl"
-        />
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <LocaleControl />
           <FullscreenButton />
         </div>
       </motion.header>
 
-      <ClockDisplay progress={gradient.progress} compact={testStarted} endTime={endTime} testStarted={testStarted} />
+      <ClockDisplay
+        progress={gradient.progress}
+        compact={testStarted}
+        endTime={endTime}
+        testStarted={testStarted}
+        testName={testName}
+        onTestNameChange={setTestName}
+      />
 
       <motion.footer
         initial={{ opacity: 0, y: 14 }}

@@ -17,7 +17,10 @@ export function useLocalStorageState<T>(key: string, initialValue: T) {
     } finally {
       setHydrated(true);
     }
-  }, [initialValue, key]);
+    // This hook should hydrate once per storage key. Re-running because the
+    // caller passed a new fallback value can overwrite active typing.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key]);
 
   useEffect(() => {
     if (!hydrated) return;
