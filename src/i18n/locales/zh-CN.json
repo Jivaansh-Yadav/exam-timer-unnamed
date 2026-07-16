@@ -1,0 +1,43 @@
+{
+  "common": {
+    "signIn": "登录",
+    "signOut": "退出登录",
+    "loading": "加载中…",
+    "on": "开",
+    "off": "关",
+    "close": "关闭",
+    "save": "保存",
+    "cancel": "取消",
+    "edit": "编辑",
+    "delete": "删除",
+    "userId": "用户 ID"
+  },
+  "language": {
+    "label": "语言",
+    "triggerLabel": "语言：{{language}}",
+    "followSystem": "跟随系统",
+    "followSystemWithLanguage": "跟随系统（{{language}}）",
+    "enUS": "英文",
+    "zhCN": "中文"
+  },
+  "errors": {
+    "notFound": {
+      "code": "404",
+      "title": "页面未找到",
+      "message": "这个页面不存在。"
+    }
+  },
+  "clock": {
+    "testNamePlaceholder": "我的考试",
+    "testNameAria": "编辑考试名称",
+    "greetingPlaceholder": "祝你好运！你可以的",
+    "greetingAria": "编辑祝福语",
+    "start": "开始",
+    "end": "结束",
+    "startTest": "开始考试",
+    "fullscreen": "切换全屏",
+    "timeUp": "Time up!",
+    "am": "上午",
+    "pm": "下午"
+  }
+}

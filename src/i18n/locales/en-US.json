@@ -1,0 +1,43 @@
+{
+  "common": {
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "loading": "Loading…",
+    "on": "On",
+    "off": "Off",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "userId": "User ID"
+  },
+  "language": {
+    "label": "Language",
+    "triggerLabel": "Language: {{language}}",
+    "followSystem": "System",
+    "followSystemWithLanguage": "System ({{language}})",
+    "enUS": "English",
+    "zhCN": "Chinese"
+  },
+  "errors": {
+    "notFound": {
+      "code": "404",
+      "title": "Page not found",
+      "message": "This page does not exist."
+    }
+  },
+  "clock": {
+    "testNamePlaceholder": "My Exam",
+    "testNameAria": "Edit test name",
+    "greetingPlaceholder": "Best of luck! You've got this",
+    "greetingAria": "Edit greeting message",
+    "start": "Start",
+    "end": "End",
+    "startTest": "Start Test",
+    "fullscreen": "Toggle fullscreen",
+    "timeUp": "Time up!",
+    "am": "AM",
+    "pm": "PM"
+  }
+}

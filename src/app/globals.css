@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-primary: #D9534F;
+  --color-secondary: #6E675B;
+  --color-accent: #F4F1EA;
+  --color-border: #E5DFD3;
+  --color-text-primary: #3C3830;
+  --color-text-secondary: #5C564C;
+  --color-text-muted: #8C8477;
+  --color-states-success: #16A34A;
+  --color-states-warning: #D97706;
+  --color-states-error: #DC2626;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-body: var(--font-schibsted);
+  --font-heading: var(--font-schibsted);
+  --font-sans: var(--font-schibsted);
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+:root {
+  --background: #F4F1EA;
+  --foreground: #3C3830;
+  --card: #F4F1EA;
+  --card-foreground: #3C3830;
+  --popover: #F4F1EA;
+  --popover-foreground: #3C3830;
+  --primary: #D9534F;
+  --primary-foreground: #fffaf4;
+  --secondary: #6E675B;
+  --secondary-foreground: #fffaf4;
+  --muted: #E5DFD3;
+  --muted-foreground: #8C8477;
+  --accent: #F4F1EA;
+  --accent-foreground: #3C3830;
+  --destructive: #DC2626;
+  --border: #E5DFD3;
+  --input: #E5DFD3;
+  --ring: #D9534F;
+  --radius: 0.5rem;
+
+  --app-primary: #D9534F;
+  --app-accent: #6E675B;
+  --app-surface: #F4F1EA;
+  --app-border: #E5DFD3;
+  --app-text: #3C3830;
+  --app-text-secondary: #5C564C;
+  --app-text-muted: #8C8477;
+  --app-success: #16A34A;
+  --app-warning: #D97706;
+  --app-error: #DC2626;
+
+  --eazo-safe-area-top: max(56px, env(safe-area-inset-top, 0px));
+  --eazo-safe-area-bottom: max(34px, env(safe-area-inset-bottom, 0px));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--app-surface);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100svh;
+  margin: 0;
+  background: var(--app-surface);
+  color: var(--app-text);
+  font-family: var(--font-body), sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  overflow: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: rgb(217 83 79 / 0.22);
+}
+
+.clay-button {
+  box-shadow: 6px 8px 18px rgb(60 56 48 / 0.08), inset 1px 1px 0 rgb(255 255 255 / 0.55);
+}
+
+.clay-inset-panel {
+  box-shadow: inset 5px 5px 12px rgb(60 56 48 / 0.06), inset -5px -5px 14px rgb(255 255 255 / 0.46), 0 18px 42px rgb(60 56 48 / 0.08);
+}
+
+.debossed-digits {
+  color: var(--app-text);
+  text-shadow: 0 1px 0 rgb(255 255 255 / 0.45), 0 12px 30px rgb(60 56 48 / 0.08);
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.time-wheel {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.time-wheel::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
