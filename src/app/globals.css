@@ -34,7 +34,7 @@
   --font-body: var(--font-schibsted);
   --font-heading: var(--font-schibsted);
   --font-sans: var(--font-schibsted);
-  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;

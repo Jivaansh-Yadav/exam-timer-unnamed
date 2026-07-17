@@ -17,7 +17,7 @@ export function useExamGradient(startTime: string, endTime: string) {
     return {
       progress,
       style: {
-        background: `radial-gradient(circle at 50% 35%, rgba(255,255,255,0.32), rgba(255,255,255,0) 42%), linear-gradient(145deg, ${color} 0%, var(--app-surface) 52%, rgba(217,83,79,0.18) 100%)`,
+        background: `radial-gradient(circle at 50% 35%, rgba(255,255,255,0.38), rgba(255,255,255,0) 45%), linear-gradient(145deg, ${color} 0%, ${color} 58%, rgba(217,83,79,${0.12 + progress / 260}) 100%)`,
       },
     };
   }, [endTime, now, startTime]);

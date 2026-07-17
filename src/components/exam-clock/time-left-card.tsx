@@ -21,10 +21,6 @@ export function TimeLeftCard({
     const end = new Date(now);
     end.setHours(Math.floor(endMinutes / 60), endMinutes % 60, 0, 0);
 
-    if (end.getTime() < now.getTime() - 1000) {
-      end.setDate(end.getDate() + 1);
-    }
-
     const secondsRemaining = Math.max(0, Math.ceil((end.getTime() - now.getTime()) / 1000));
     const hours = Math.floor(secondsRemaining / 3600);
     const minutes = Math.floor((secondsRemaining % 3600) / 60);

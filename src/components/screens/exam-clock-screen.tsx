@@ -3,9 +3,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ClassLabel } from "@/components/exam-clock/class-label";
 import { ClockDisplay } from "@/components/exam-clock/clock-display";
 import { EditableText } from "@/components/exam-clock/editable-text";
 import { FullscreenButton } from "@/components/exam-clock/fullscreen-button";
+import { RefreshButton } from "@/components/exam-clock/refresh-button";
 import { LocaleControl } from "@/components/exam-clock/locale-control";
 import { MemePopup } from "@/components/exam-clock/meme-popup";
 import { TimePicker } from "@/components/exam-clock/time-picker";
@@ -92,12 +94,16 @@ export function ExamClockScreen() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-        className="relative z-10 flex w-full shrink-0 items-center justify-end gap-3"
+        className="relative z-10 flex w-full shrink-0 items-start justify-between gap-3"
         style={{ paddingTop: "max(14px, env(safe-area-inset-top, 0px))" }}
       >
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        <ClassLabel />
+        <div className="flex shrink-0 items-start gap-2 sm:gap-3">
           <LocaleControl />
-          <FullscreenButton />
+          <div className="flex flex-col gap-2">
+            <FullscreenButton />
+            <RefreshButton />
+          </div>
         </div>
       </motion.header>
 
