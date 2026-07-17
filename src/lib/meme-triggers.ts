@@ -35,14 +35,40 @@ export const previewMemeTrigger: MemeTrigger = {
 };
 
 export const memeTriggers: MemeTrigger[] = [
-  {
-    time: "21:18:00",
-    imageUrl: embeddedMemeImage,
-    caption: "Tiny stretch break, then back to it.",
-  },
-  {
-    time: "21:45:00",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR48cVhHUA5WwIQUaMtuexowNQkkQoZMVenxQS8WS3chA&s",
-    caption: "Saara Ghee khatam",
-  },
-];
+    {
+      time: "09:10:00",
+      imageUrl: "https://github-production-user-asset-6210df.s3.amazonaws.com/187954222/623136048-52c3cce7-fc0d-4ba3-85b3-cf5a3e0340be.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260717T093804Z&X-Amz-Expires=300&X-Amz-Signature=725319f06e52618fad189db6491b0d0048e2f37f1cb3fae9aa6deca00244324d&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng",
+      caption: "When you already know you're cooked!",
+      width: 475,
+      height: 445,
+    },
+    {
+      time: "09:20:00",
+      imageUrl: "https://github-production-user-asset-6210df.s3.amazonaws.com/187954222/623147926-b57359d1-fc6a-4b2c-9e36-1ede7fa63de0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260717T094511Z&X-Amz-Expires=300&X-Amz-Signature=3a558c851f6f41f1b92748e42c0aae8b7a9db305da040be428b1c0e90b789ce7&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng",
+      caption: "Last 30 minutes left!",
+      width: 455,
+      height: 455,
+    },
+    {
+      time: "09:40:00",
+      imageUrl: "https://github-production-user-asset-6210df.s3.amazonaws.com/187954222/623132719-6ff4e2dd-fd20-4410-803e-788bb15b0be8.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260717T093857Z&X-Amz-Expires=300&X-Amz-Signature=81ff0ea1775c5a7493599fe4a98adeb8ae9753193ac4e6b1fa48f71b22d9ef78&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng",
+      caption: "Last 10 minutes left!",
+      width: 420,
+      height: 420,
+    },
+    {
+      time: "09:45:00",
+      imageUrl: "https://github-production-user-asset-6210df.s3.amazonaws.com/187954222/623132719-6ff4e2dd-fd20-4410-803e-788bb15b0be8.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260717T093857Z&X-Amz-Expires=300&X-Amz-Signature=81ff0ea1775c5a7493599fe4a98adeb8ae9753193ac4e6b1fa48f71b22d9ef78&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng",
+      caption: "Last 5 minutes left!",
+      width: 486,
+      height: 486,
+    },
+    {
+      time: "09:50:00",
+      imageUrl: "https://github-production-user-asset-6210df.s3.amazonaws.com/187954222/623134096-e0a451f9-6309-4a2a-aeaf-a823fa637743.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260717T093949Z&X-Amz-Expires=300&X-Amz-Signature=2d94c49bfcee37ac8415f8888616312a68d81fef6fd9f901167ea43518107430&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng",
+      caption: "Kaisa gya paper?",
+      width: 431,
+      height: 348,
+    },
+  ];
+  
