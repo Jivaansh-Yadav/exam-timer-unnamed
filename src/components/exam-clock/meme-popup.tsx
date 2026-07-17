@@ -130,18 +130,30 @@ export function MemePopup() {
 
   useEffect(() => {
     if (!active) return;
-    const timeout = window.setTimeout(() => setActive(null), 3000);
+    const timeout = window.setTimeout(() => setActive(null), 4000);
     return () => window.clearTimeout(timeout);
   }, [active]);
 
   return (
     <AnimatePresence>
       {active ? (
-        <motion.aside
-          key={active.key}
-          className="pointer-events-none fixed inset-0 z-[80] flex items-center justify-center px-4"
-          aria-live="polite"
-        >
+        <>
+          {/* Background overlay */}
+          <motion.div
+            key={`overlay-${active.key}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.3 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="pointer-events-none fixed inset-0 z-[79] bg-black"
+          />
+          
+          {/* Meme popup */}
+          <motion.aside
+            key={active.key}
+            className="pointer-events-none fixed inset-0 z-[80] flex items-center justify-center px-4"
+            aria-live="polite"
+          >
           <motion.div
             initial={{ opacity: 0, scale: 0.82, x: entrance.x, y: entrance.y }}
             animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
@@ -175,6 +187,7 @@ export function MemePopup() {
             </div>
           </motion.div>
         </motion.aside>
+        </>
       ) : null}
     </AnimatePresence>
   );
