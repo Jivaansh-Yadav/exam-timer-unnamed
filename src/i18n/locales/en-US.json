@@ -38,6 +38,7 @@
     "fullscreen": "Toggle fullscreen",
     "timeUp": "Time up!",
     "am": "AM",
-    "pm": "PM"
+    "pm": "PM",
+    "refresh": "Refresh clock"
   }
 }
