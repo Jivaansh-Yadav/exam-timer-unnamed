@@ -18,7 +18,7 @@ const SITE_URL = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : undefined;
 
-const SITE_TITLE = process.env.NEXT_PUBLIC_APP_TITLE?.trim() || "Xi - Science - Exam Timer Clock";
+const SITE_TITLE = "XI - Science - Exam Timer Clock" || process.env.NEXT_PUBLIC_APP_TITLE?.trim();
 const SITE_DESCRIPTION =
   process.env.NEXT_PUBLIC_APP_DESCRIPTION?.trim() ||
   "Show a fullscreen live exam clock with editable test context.";
