@@ -35,6 +35,13 @@ export const previewMemeTrigger: MemeTrigger = {
 };
 
 export const memeTriggers: MemeTrigger[] = [
+  {
+      time: "08:50:00",
+      imageUrl: "https://exam-timer-unnamed.vercel.app/walter.png",
+      caption: "Test Started! Summon him.",
+      width: 323,
+      height: 420,
+    },
     {
       time: "09:10:00",
       imageUrl: "https://exam-timer-unnamed.vercel.app/absolute_cinema.png",
