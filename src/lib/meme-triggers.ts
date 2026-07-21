@@ -37,10 +37,10 @@ export const previewMemeTrigger: MemeTrigger = {
 export const memeTriggers: MemeTrigger[] = [
   {
       time: "08:50:00",
-      imageUrl: "https://exam-timer-unnamed.vercel.app/walter.png",
-      caption: "Test Started! Summon him.",
-      width: 323,
-      height: 420,
+      imageUrl: "https://exam-timer-unnamed.vercel.app/last_choice.png",
+      caption: "Test Started! And you still don't know the syllabus.",
+      width: 320,
+      height: 335,
     },
     {
       time: "09:10:00",
